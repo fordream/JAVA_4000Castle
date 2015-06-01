@@ -1,6 +1,8 @@
 package Data;
 
-public class Block 
+import java.io.Serializable;
+
+public class Block implements Serializable
 {
 	private String imagePath;
 	private int tag;
