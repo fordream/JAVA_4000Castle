@@ -6,6 +6,11 @@ import java.util.Date;
 
 public class Map implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7598642293912049886L;
+
 	private final int size = 10;
 	
 	// x y는 status[ y ][ x ] 이런 식으로 처리한다.
