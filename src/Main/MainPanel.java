@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Data.Game;
 import Edit.GUI.MapEditPanel;
 import Play.GUI.StagePanel;
 
@@ -22,8 +23,17 @@ public class MainPanel extends JPanel implements ActionListener
 	private JButton editButton;
 	private JButton closeButton;
 	private JLabel label;
+	Game gameData;
 	
-	public MainPanel(MainFrame mainFrame) {
+	public Game getGameData() {
+		return gameData;
+	}
+
+	public void setGameData(Game gameData) {
+		this.gameData = gameData;
+	}
+
+	public MainPanel(MainFrame mainFrame,Game gameData) {
 		super();
 	
 		this.setMainFrame(mainFrame);
@@ -57,14 +67,14 @@ public class MainPanel extends JPanel implements ActionListener
 		{
 			getMainFrame().remove(this);
 			getMainFrame().repaint();
-			stagePanel = new StagePanel(mainFrame);
+			stagePanel = new StagePanel(mainFrame,gameData);
 			getMainFrame().add(stagePanel);
 		}
 		else if(e.getSource() == editButton)
 		{
 			getMainFrame().remove(this);
 			getMainFrame().repaint();
-			mapEditPanel = new MapEditPanel(mainFrame);
+			mapEditPanel = new MapEditPanel(mainFrame,gameData);
 			getMainFrame().add(mapEditPanel);
 		}
 		else if(e.getSource() == closeButton)

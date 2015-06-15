@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Data.Game;
 import Main.MainFrame;
 import Main.MainPanel;
 
@@ -23,8 +24,20 @@ public class PlayPanel extends JPanel implements ActionListener
 	
 	private MainFrame mainFrame;
 	
+	private Game gameData;
 	
-	public PlayPanel(MainFrame mainFrame) {
+	
+	public Game getGameData() {
+		return gameData;
+	}
+
+
+	public void setGameData(Game gameData) {
+		this.gameData = gameData;
+	}
+
+
+	public PlayPanel(MainFrame mainFrame,Game gameData) {
 		super();
 		
 		
@@ -70,7 +83,7 @@ public class PlayPanel extends JPanel implements ActionListener
 		{
 			getMainFrame().remove(this);
 			getMainFrame().repaint();
-			stagePanel = new StagePanel(mainFrame);
+			stagePanel = new StagePanel(mainFrame,gameData);
 			getMainFrame().add(stagePanel);
 		}
 	}
